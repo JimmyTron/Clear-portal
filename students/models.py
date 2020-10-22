@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils import timezone
 from django.contrib.auth.models import User
 from clear.models import Department, Course
 #from PIL import Image
@@ -22,3 +23,13 @@ class Profile(models.Model):
         #     output_size = (300, 300)
         #     img.thumbnail(output_size)
         #     img.save(self.image.path)
+
+class clearance(models.Model):
+    request = models.CharField(default="Clearance Request", max_length=100)
+    departments = models.ManyToManyField(Department)
+    date_posted = models.DateTimeField(default=timezone.now)
+    student = models.OneToOneField(User, on_delete=models.CASCADE) #change to OneToOneField to only have one request per user
+
+    def __str__(self):
+        #return f'{self.student.profile.Adm_no, self.student.first_name, self.request}'
+        return self.student.first_name +" "+ self.student.last_name+" "+ self.student.profile.Adm_no +" "+ self.request
