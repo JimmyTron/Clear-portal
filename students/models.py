@@ -8,7 +8,6 @@ from PIL import Image
 
 
 class StudentProfile(models.Model):
-    
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     student_id = models.CharField(max_length=50, blank=True, null=True)
     image = models.ImageField(default='default.jpg', upload_to='profile_pics')
