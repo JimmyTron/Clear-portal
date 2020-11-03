@@ -38,6 +38,7 @@ class Clearance(models.Model):
         #return f'{self.student.Adm_no, self.student.user.first_name, self.request}'
         return self.student.user.first_name +" "+ self.student.user.last_name+" "+ self.student.Adm_no +" "+ self.request
 """ The f string version inserts brackets and apostrophes to the return string"""
+
 """def post_save_profile_create(sender, instance, created, *args, **kwargs):
     studentprofile, created = StudentProfile.objects.get_or_create(user=instance)
 
