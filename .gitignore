@@ -7,3 +7,4 @@ build
 #**/*.jpg
 #clearance/__pycache__/urls.cpython-39.pyc
 **/*.cpython
+*.pyc
