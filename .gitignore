@@ -8,3 +8,4 @@ build
 #clearance/__pycache__/urls.cpython-39.pyc
 **/*.cpython
 *.pyc
+*.pyc
