@@ -5,6 +5,7 @@ from django.utils import timezone
 from django.contrib.auth.models import User
 from department.models import Department, Course
 from PIL import Image
+import datetime
 
 
 class StudentProfile(models.Model):
@@ -33,6 +34,11 @@ class Clearance(models.Model):
     date_posted = models.DateTimeField(default=timezone.now)
     student = models.OneToOneField(StudentProfile, on_delete=models.CASCADE) #change to OneToOneField to only have one request per user
     cleared = models.BooleanField(default=False)
+
+    def recent_post(self):
+        now = timezone.now()
+        return now - datetime.timedelta(days=1) <= self.date_posted <=now 
+        """ return self.date_posted >= timezone.now() - datetime.timedelta(days=1) 'failing test' """
 
     def __str__(self):
         #return f'{self.student.Adm_no, self.student.user.first_name, self.request}'
