@@ -3,9 +3,6 @@ env
 build
 .vscode
 **/*.json
-#**/*.png
-#**/*.jpg
-#clearance/__pycache__/urls.cpython-39.pyc
-**/*.cpython
-*.pyc
-*.pyc
+**/*.png
+**/*.jpg
+**/*.cpython*
