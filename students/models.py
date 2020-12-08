@@ -6,8 +6,12 @@ from django.contrib.auth.models import User
 from department.models import Department, Course
 from PIL import Image
 import datetime
-
-
+CLEARANCE_CHOICES = [
+    ('PENDING', 'Pending'),
+    ('APPROVED', 'Approved'),
+    ('DECLINED', 'Declined'),
+    ('REVISED', 'Revised'),
+]
 class StudentProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     student_id = models.CharField(max_length=50, blank=True, null=True)
